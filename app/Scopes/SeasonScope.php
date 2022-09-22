@@ -21,7 +21,7 @@ class SeasonScope implements Scope
     {
         $getSeason = \App\Models\Season::where('year', session()->get('season'))->first();
 
-        if (!\Route::currentRouteNamed('game.*')) {
+        if (!\Route::currentRouteNamed('game.index')) {
             $builder->where('season_id', $getSeason->id);
         }
     }
