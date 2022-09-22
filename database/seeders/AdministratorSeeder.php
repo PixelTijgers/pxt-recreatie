@@ -28,7 +28,7 @@ class AdministratorSeeder extends Seeder
             ],
             [
                 'name' => 'Jens van Dam',
-                'email' => 'jensvandam@hotmail.com',
+                'email' => 'jensvdam@hotmail.com',
                 'phone' => '+31 (0)6 54 34 26 47',
                 'password' => \Hash::make('JensW8woord'),
             ],
