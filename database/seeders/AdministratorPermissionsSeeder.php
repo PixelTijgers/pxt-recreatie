@@ -196,7 +196,8 @@ class AdministratorPermissionsSeeder extends Seeder
 
         // Give the user superadmin role.
         Administrator::find(1)->assignRole($superadmin);
-        Administrator::find(2)->assignRole($demo);
+        Administrator::find(2)->assignRole($superadmin);
+        Administrator::find(3)->assignRole($superadmin);
     }
 
     protected function syncDirectAdministratorPermissions($currentPermissions)
