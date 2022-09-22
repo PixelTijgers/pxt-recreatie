@@ -74,7 +74,7 @@ class TeamSeeder extends Seeder
             ],
             [
                 'season_id'     => 2,
-                'name'          => 'Samengeraapt Z',
+                'name'          => 'Samengeraapt Zooitje',
             ],
         ];
 
