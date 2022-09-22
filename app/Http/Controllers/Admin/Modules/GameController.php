@@ -9,8 +9,9 @@ use Yajra\Datatables\Datatables;
 use Yajra\DataTables\Html\Builder;
 
 // Models.
-use App\Models\Season;
 use App\Models\Game;
+use App\Models\HallAttendant;
+use App\Models\Season;
 
 // Request
 use App\Http\Requests\GameRequest;
@@ -129,9 +130,18 @@ class GameController extends Controller
         $getSeason = Season::where('year', session()->get('season'))->first();
 
         // Post data to database.
-        Game::create([
+        $game = Game::create([
             'season_id' => $getSeason->id
         ] + $request->validated());
+
+        if($game->field === 1 && $game->game_date->hour == 20)
+        {
+            HallAttendant::create([
+                'season_id' => $game->season_id,
+                'team_id' => $game->team_home_id,
+                'game_id' => $game->id,
+            ]);
+        }
 
         // Return back with message.
         return redirect()->route('game.index')->with([
