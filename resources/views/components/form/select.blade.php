@@ -14,7 +14,7 @@
 
             <option class="disabled">{{ $disabledOption }}</option>
             @foreach($options as $key => $option)
-            <option value="{{ (@$valueWrapper ? $option[$valueWrapper[0]] : $key) }}" {{ ($valueWrapper ? ($option[$valueWrapper[0]] == $value ? 'selected' : null) : ($key == $value ? 'selected' : null)) }}>{{ (@$valueWrapper ? $option[$valueWrapper[1]] : $option) }}</option>
+            <option value="{{ (@$valueWrapper ? $option[$valueWrapper[0]] : $key) }}" {{ ($valueWrapper ? ($option[$valueWrapper[0]] == $value ? 'selected' : null) : ($key == $value ? 'selected' : null)) }}>{{ (@$valueWrapper ? ($name === 'game_id' ? \Carbon::parse($option[$valueWrapper[1]])->formatLocalized('%d-%m-%Y om %H:%M') : $option[$valueWrapper[1]]) : $option) }}</option>
             @endforeach
 
         </select>

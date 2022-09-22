@@ -104,6 +104,13 @@
     "Game Select": "Selecteer wedstrijd",
     "Select Referee": "Selecteer scheidsrechter",
 
+    "Hall Moniter": "Zaalwacht",
+    "Hall Moniter Introduction": "Een overzicht met alle zaalwachten per team per speelronde.",
+    "Hall Moniter Introduction Add": "Voeg een nieuwe zaalwacht toe.",
+    "Hall Moniter Introduction Edit": "Wijzig de geselecteerde zaalwacht.",
+    "Content Introduction Hall Moniter": "Je kunt zaalwachten toevoegen of wijzigen.",
+    "Hall Moniter Select": "Selecteer zaalwacht",
+
     "Membership": "Lidmaatschap",
     "Memberships": "Lidmaatschappen",
     "Membership Introduction": "Een overzicht met alle lidmaatschappen. Voeg een nieuw lidmaatschap toe of wijzig de huidige lidmaatschappen.",
@@ -183,6 +190,7 @@
     "Feedback Send": "Laat het ons weten!",
     "Field": "Veld",
     "Gamedate": "Datum wedstrijd",
+    "Game Select": "Selecteer wedstrijd",
     "General": "Algemene gegevens",
     "Home": "Thuis",
     "Image": "Afbeelding",

@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\Modules\ClientController;
 use App\Http\Controllers\Admin\Modules\DashboardController;
 use App\Http\Controllers\Admin\Modules\DetailController;
 use App\Http\Controllers\Admin\Modules\GameController;
+use App\Http\Controllers\Admin\Modules\HallAttendantController;
 use App\Http\Controllers\Admin\Modules\InvoiceController;
 use App\Http\Controllers\Admin\Modules\MemberController;
 use App\Http\Controllers\Admin\Modules\MembershipController;
@@ -85,6 +86,9 @@ Route::middleware(['auth:sanctum', 'verified', 'admin.permission'])->prefix('adm
 
         // Init games route(s).
         Route::resource('games', GameController::class, ['names' => 'game']);
+
+        // Init hall attendant route(s).
+        Route::resource('hall-attendants', HallAttendantController::class, ['names' => 'hallAttendant']);
 
         // Init membership route(s).
         // Route::resource('memberships', MembershipController::class, ['names' => 'membership']);

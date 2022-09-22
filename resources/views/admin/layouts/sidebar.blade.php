@@ -141,6 +141,16 @@
 
             @endcan
 
+            @can('modules.hallattendant.index')
+
+                <li class="nav-item {{ active(['*/hall-attendants', '*/hall-attendants/*']) }}">
+                    <a href="{{ url('/admin/modules/hall-attendants') }}" class="nav-link">
+                        <i class="link-icon fa-light fa-person-military-pointing"></i><span class="link-title">{{ __('Hall Moniter') }}</span>
+                    </a>
+                </li>
+
+            @endcan
+
             @can('modules.membership.index')
 
                 <li class="nav-item {{ active(['*/memberships', '*/memberships/*']) }}">
