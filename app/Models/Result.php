@@ -7,15 +7,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 // Traits.
-use Spatie\Permission\Traits\HasRoles;
 
-class Season extends Model
+class Result extends Model
 {
     /**
      * Traits
      *
      */
-    use HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -23,8 +21,11 @@ class Season extends Model
      * @var string[]
      */
     protected $fillable = [
-        'year',
-        'name',
+        'game_id',
+        'team_home_id',
+        'team_away_id',
+        'team_home_score',
+        'team_away_score',
     ];
 
     /**
@@ -33,6 +34,10 @@ class Season extends Model
      * @var array
      */
     protected $casts = [
-        'year' => 'integer',
+        'game_id' => 'integer',
+        'team_home_id' => 'integer',
+        'team_away_id' => 'integer',
+        'team_home_score' => 'integer',
+        'team_away_score' => 'integer',
     ];
 }

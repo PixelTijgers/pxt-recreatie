@@ -45,7 +45,7 @@
 
             <div class="row">
 
-                <div class="col-md-12 grid-margin stretch-card">
+                <div class="col-md-6 grid-margin stretch-card">
 
                     <div class="card">
 
@@ -60,7 +60,7 @@
                                     name="game_date"
                                     :label="__('Gamedate')"
                                     :value="(old('game_date') ? old('game_date') : (@$game ? $game->game_date : null))"
-                                    :cols="['col-2', 'col-3']"
+                                    :cols="['col-4', 'col-8']"
                                     :row="true"
                                 />
 
@@ -68,7 +68,7 @@
                                     name="field"
                                     :label="__('Field')"
                                     :value="(old('field') ? old('field') : (@$game ? $game->field : null))"
-                                    :cols="['col-2', 'col-3']"
+                                    :cols="['col-4', 'col-3']"
                                     :options="[
                                         '1' => 1,
                                         '2' => 2,
@@ -79,7 +79,7 @@
                                 <x-form.select
                                     name="team_home_id"
                                     :label="__('Home')"
-                                    :cols="['col-2', 'col-3']"
+                                    :cols="['col-4', 'col-8']"
                                     :value="(old('team_home_id') ? old('team_home_id') : (@$game ? $game->team_home_id : null))"
                                     :options="\App\Models\Team::all()->sortBy('name')"
                                     :valueWrapper="['id', 'name']"
@@ -90,7 +90,7 @@
                                 <x-form.select
                                     name="team_away_id"
                                     :label="__('Away')"
-                                    :cols="['col-2', 'col-3']"
+                                    :cols="['col-4', 'col-8']"
                                     :value="(old('team_away_id') ? old('team_away_id') : (@$game ? $game->team_away_id : null))"
                                     :options="\App\Models\Team::all()->sortBy('name')"
                                     :valueWrapper="['id', 'name']"
@@ -101,7 +101,7 @@
                                 <x-form.select
                                     name="referee_id"
                                     :label="__('Referee')"
-                                    :cols="['col-2', 'col-3']"
+                                    :cols="['col-4', 'col-8']"
                                     :value="(old('referee_id') ? old('referee_id') : (@$game ? $game->referee_id : null))"
                                     :options="\App\Models\Team::all()->sortBy('name')"
                                     :valueWrapper="['id', 'name']"
@@ -117,7 +117,40 @@
 
                 </div>
 
+                @if(@$game)
+                <div class="col-md-6 grid-margin stretch-card">
+
+                    <div class="card">
+
+                        <div class="card-body">
+
+                            <h6 class="card-title mt-4">{{ __('Result') }}</h6>
+                            <p class="mb-4 text-muted small">{{ __('Content Introduction Result') }}</p>
+
+                            <div class="col-md-12">
+
+                                <div class="row">
+
+                                    @if(!\App\Models\Result::where('game_id', $game->id)->get()->isEmpty())
+                                        @include('admin.modules.game.includes.scoreEdit', [
+                                            'game' => $game
+                                        ])
+                                    @else
+                                        @include('admin.modules.game.includes.scoreAdd')
+                                    @endif
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
+            @endif
 
             <div class="form-submit">
                 <button type="submit" class="btn btn-primary">{{ (@$game ? __('Edit') : __('Add')) }}</button>

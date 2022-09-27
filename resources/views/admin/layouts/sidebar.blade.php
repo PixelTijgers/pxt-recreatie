@@ -121,6 +121,16 @@
 
             @endcan
 
+            @can('modules.season.index')
+
+                <li class="nav-item {{ active(['*/seasons', '*/seasons/*']) }}">
+                    <a href="{{ url('/admin/modules/seasons') }}" class="nav-link">
+                        <i class="link-icon fa-regular fa-medal"></i><span class="link-title">{{ __('Season') }}</span>
+                    </a>
+                </li>
+
+            @endcan
+
             @can('modules.team.index')
 
                 <li class="nav-item {{ active(['*/teams', '*/teams/*']) }}">

@@ -85,7 +85,7 @@ Route::middleware(['auth:sanctum', 'verified', 'admin.permission'])->prefix('adm
         Route::resource('teams', TeamController::class, ['names' => 'team']);
 
         // Init games route(s).
-        Route::resource('games', GameController::class, ['names' => 'game']);
+        Route::resource('games', GameController::class, ['names' => 'game'])->except(['show']);
 
         // Init hall attendant route(s).
         Route::resource('hall-attendants', HallAttendantController::class, ['names' => 'hallAttendant']);

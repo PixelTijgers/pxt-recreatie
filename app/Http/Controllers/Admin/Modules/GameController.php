@@ -11,6 +11,7 @@ use Yajra\DataTables\Html\Builder;
 // Models.
 use App\Models\Game;
 use App\Models\HallAttendant;
+use App\Models\Result;
 use App\Models\Season;
 
 // Request
@@ -143,6 +144,10 @@ class GameController extends Controller
             ]);
         }
 
+        // Store the scores.
+        if(!empty($request->scores->team_home_score) || !empty($request->scores->team_away_score))
+            $this->storeScores($game, $request);
+
         // Return back with message.
         return redirect()->route('game.index')->with([
                 'type' => 'success',
@@ -191,12 +196,40 @@ class GameController extends Controller
         // Save data.
         $game->save();
 
+        // Input the games.
+        $this->storeScores($game, $request);
+
         // Return back with message.
         return redirect()->route('game.index')->with([
                 'type' => 'success',
                 'message' => __('Alert Edit')
             ]
         );
+    }
+
+    /**
+     * Store a the scores in the database.
+     *
+     * @param  \Illuminate\Http\Request  $game
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    private function storeScores($game, $request)
+    {
+        // Delete all the previous sets.
+        Result::where('game_id', $game->id)->delete();
+
+        // Add the played sets.
+        foreach($request->scores as $scores)
+        {
+            Result::create([
+                'game_id'   =>  $game->id,
+                'team_home_id' => $game->team_home_id,
+                'team_away_id' => $game->team_away_id,
+                'team_home_score' => $scores['team_home_score'],
+                'team_away_score' => $scores['team_away_score'],
+            ]);
+        }
     }
 
     /**

@@ -104,6 +104,13 @@
     "Game Select": "Selecteer wedstrijd",
     "Select Referee": "Selecteer scheidsrechter",
 
+    "Result": "Uitslag",
+    "Results": "Uitslagen",
+    "Result Introduction": "Een overzicht met alle uitslagen.",
+    "Result Introduction Add": "Voeg een uitslag toe.",
+    "Result Introduction Edit": "Wijzig de uitslag van de geselecteerde wedstrijd.",
+    "Content Introduction Result": "Je kunt een uitslag toevoegen of wijzigen.",
+
     "Hall Moniter": "Zaalwacht",
     "Hall Moniter Introduction": "Een overzicht met alle zaalwachten per team per speelronde.",
     "Hall Moniter Introduction Add": "Voeg een nieuwe zaalwacht toe.",
@@ -247,6 +254,7 @@
     "Referee": "Scheidsrechter",
     "Remember Me": "Onthoud gegevens",
     "Search": "Zoeken",
+    "Set": "Set",
     "Status": "Status",
     "Street": "Straat",
     "Subtitle": "Subtitel",

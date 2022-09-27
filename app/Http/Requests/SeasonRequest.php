@@ -26,8 +26,7 @@ class SeasonRequest extends FormRequest
     public function rules()
     {
         return [
-            'season'  => 'required|integer|max:255|unique:categories,season'  . (@$this->category->id ? ',' . $this->category->id : null),
-            'name'  => 'required|string|max:255|unique:categories,name'  . (@$this->category->id ? ',' . $this->category->id : null),
+            'name'  => 'required|string|max:255|unique:seasons,name'  . (@$this->season->id ? ',' . $this->season->id : null),
         ];
     }
 
@@ -39,7 +38,6 @@ class SeasonRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.season' => 'Dit seizoen bestaat al.',
             'name.unique' => 'Er is al een seizoen met deze naam.',
         ];
     }

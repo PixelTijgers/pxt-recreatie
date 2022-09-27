@@ -87,7 +87,9 @@ class SeasonController extends Controller
     public function store(SeasonRequest $request)
     {
         // Post data to database.
-        Season::Create($request->validated());
+        Season::Create([
+            'year' => date('Y')
+        ] + $request->validated());
 
         // Return back with message.
         return redirect()->route('season.index')->with([
