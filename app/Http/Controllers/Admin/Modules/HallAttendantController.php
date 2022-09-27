@@ -40,7 +40,7 @@ class HallAttendantController extends Controller
     {
         // Init datatables.
         if (request()->ajax()) {
-            return DataTables::of(HallAttendant::query()->with(['team', 'game']))
+            return DataTables::of(HallAttendant::query()->with(['team', 'game'])->select('hall_attendants.*'))
             ->editColumn('game.game_date', function(HallAttendant $hall_attendant) {
                 return Carbon::parse($hall_attendant->game_date)->formatLocalized('%d-%m-%Y om %H:%M');
             })

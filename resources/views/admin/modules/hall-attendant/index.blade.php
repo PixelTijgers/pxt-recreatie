@@ -45,20 +45,6 @@
 
                     <div class="card-body">
 
-                        <div class="row">
-
-                            @can('modules.hallattendant.add')
-
-                                <div class="col-md-12 d-flex justify-content-end mb-4">
-
-                                    <a href="{{ route('hallAttendant.create') }}" class="btn btn-primary">{{ __('Hall Moniter') }} {{ strtolower(__('Add')) }}</a>
-
-                                </div>
-
-                            @endcan
-
-                        </div>
-
                         <div class="table-responsive">
 
                             {!! $html->table(['class' => 'table table-striped']) !!}
