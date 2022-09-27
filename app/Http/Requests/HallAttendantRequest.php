@@ -27,7 +27,6 @@ class HallAttendantRequest extends FormRequest
     {
         return [
             'team_id'   => 'required|integer',
-            'game_id'   => 'required|integer',
         ];
     }
 }

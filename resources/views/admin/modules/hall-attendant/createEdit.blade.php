@@ -58,17 +58,6 @@
                                     :row="true"
                                 />
 
-                                <x-form.select
-                                    name="game_id"
-                                    :label="__('Game')"
-                                    :cols="['col-2', 'col-3']"
-                                    :value="(old('game_id') ? old('game_id') : (@$hall_attendant ? $hall_attendant->game_id : null))"
-                                    :options="\App\Models\Game::all()->sortBy('game_date')"
-                                    :valueWrapper="['id', 'game_date']"
-                                    :disabledOption="__('Game Select')"
-                                    :row="true"
-                                />
-
                             </div>
 
                         </div>
